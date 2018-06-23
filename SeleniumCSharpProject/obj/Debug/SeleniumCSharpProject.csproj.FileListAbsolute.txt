@@ -10,3 +10,6 @@ C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\obj\Debu
 C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\obj\Debug\SeleniumCSharpProject.pdb
 C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\IEDriverServer-license.txt
 C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\IEDriverServer.exe
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\nunit.framework.dll
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\nunit.framework.pdb
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\nunit.framework.xml
