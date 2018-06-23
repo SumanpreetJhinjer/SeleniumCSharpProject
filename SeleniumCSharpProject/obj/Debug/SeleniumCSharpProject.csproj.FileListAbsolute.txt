@@ -1,0 +1,12 @@
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\obj\Debug\SeleniumCSharpProject.csprojAssemblyReference.cache
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\obj\Debug\SeleniumCSharpProject.csproj.CoreCompileInputs.cache
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\SeleniumCSharpProject.exe.config
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\SeleniumCSharpProject.exe
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\SeleniumCSharpProject.pdb
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\WebDriver.dll
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\WebDriver.xml
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\obj\Debug\SeleniumCSharpProject.csproj.CopyComplete
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\obj\Debug\SeleniumCSharpProject.exe
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\obj\Debug\SeleniumCSharpProject.pdb
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\IEDriverServer-license.txt
+C:\Users\m\Documents\GitHub\SeleniumCSharpProject\SeleniumCSharpProject\bin\Debug\IEDriverServer.exe
