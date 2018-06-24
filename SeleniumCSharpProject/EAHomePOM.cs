@@ -48,12 +48,13 @@ namespace SeleniumCSharpProject
         //filling form on home page
         public void FillUserForm(string title, string initial, string firstName, string middleName)
         {
+            //Use of extension methods
             //select title from drop down
-            new SelectElement(ddlTitleId).SelectByText(title);
+            ddlTitleId.selectDropDown(title);
             //fill user info
-            txtInitial.SendKeys(initial);
-            txtFirstName.SendKeys(firstName);
-            txtMiddleName.SendKeys(middleName);
+            txtInitial.EnterText(initial);
+            txtFirstName.EnterText(firstName);
+            txtMiddleName.EnterText(middleName);
             //click gender radio button
             rbMale.Click();
             rbFemale.Click();
@@ -63,6 +64,21 @@ namespace SeleniumCSharpProject
             //click save
             Thread.Sleep(2000);
             btnSave.Click();
+            ////select title from drop down
+            //new SelectElement(ddlTitleId).SelectByText(title);
+            ////fill user info
+            //txtInitial.SendKeys(initial);
+            //txtFirstName.SendKeys(firstName);
+            //txtMiddleName.SendKeys(middleName);
+            ////click gender radio button
+            //rbMale.Click();
+            //rbFemale.Click();
+            ////click language checkbox
+            //cbenglish.Click();
+            //cbHindi.Click();
+            ////click save
+            //Thread.Sleep(2000);
+            //btnSave.Click();
         }
     }
 }

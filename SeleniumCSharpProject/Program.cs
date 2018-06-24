@@ -42,16 +42,7 @@ namespace SeleniumCSharpProject
             homePage.FillUserForm("Mr.", "Sumanpreet", "Singh", "Jhinjer");
             Console.WriteLine("Filled user form");
 
-            ////Use of set custom methods
-
-            //CustomSetMethods.EnterText( "UserName", "admin", PropertyType.Name);
-            //CustomSetMethods.EnterText( "Password", "admin", PropertyType.Name);
-
-            ////Get custom methods
-            //Console.WriteLine("User Name: " + CustomGetMethods.GetText( "UserName", PropertyType.Name));
-            //Console.WriteLine("Password: " + CustomGetMethods.GetText( "Password", PropertyType.Name));
-            //CustomSetMethods.Click( "Login", PropertyType.Name);
-            //Console.WriteLine("entered value");
+            
         }
         [TearDown]
         public void TearDown()

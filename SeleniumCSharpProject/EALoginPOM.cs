@@ -28,15 +28,26 @@ namespace SeleniumCSharpProject
         public EAHomePOM Login(string userName,string password)
         {
             //Fill username
-            txtUserName.SendKeys(userName);
-            Console.WriteLine("User Name: " + txtUserName.GetAttribute("value"));
+            txtUserName.EnterText(userName);
+            Console.WriteLine("User Name: " + txtUserName.GetText());
             //Fill password
-            txtPassword.SendKeys(password);
-            Console.WriteLine("Password: " + txtPassword.GetAttribute("value"));
+            txtPassword.EnterText(password);
+            Console.WriteLine("Password: " + txtPassword.GetText());
             //Click Login
-            btnLogin.Submit();
+            btnLogin.Clicks();
             // return the object of the page navigated to
             return new EAHomePOM();
+
+            ////Fill username
+            //txtUserName.SendKeys(userName);
+            //Console.WriteLine("User Name: " + txtUserName.GetAttribute("value"));
+            ////Fill password
+            //txtPassword.SendKeys(password);
+            //Console.WriteLine("Password: " + txtPassword.GetAttribute("value"));
+            ////Click Login
+            //btnLogin.Submit();
+            //// return the object of the page navigated to
+            //return new EAHomePOM();
         }
     }
 }
