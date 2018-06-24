@@ -64,21 +64,7 @@ namespace SeleniumCSharpProject
             //click save
             Thread.Sleep(2000);
             btnSave.Click();
-            ////select title from drop down
-            //new SelectElement(ddlTitleId).SelectByText(title);
-            ////fill user info
-            //txtInitial.SendKeys(initial);
-            //txtFirstName.SendKeys(firstName);
-            //txtMiddleName.SendKeys(middleName);
-            ////click gender radio button
-            //rbMale.Click();
-            //rbFemale.Click();
-            ////click language checkbox
-            //cbenglish.Click();
-            //cbHindi.Click();
-            ////click save
-            //Thread.Sleep(2000);
-            //btnSave.Click();
+            
         }
     }
 }

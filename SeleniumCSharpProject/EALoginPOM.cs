@@ -37,17 +37,7 @@ namespace SeleniumCSharpProject
             btnLogin.Clicks();
             // return the object of the page navigated to
             return new EAHomePOM();
-
-            ////Fill username
-            //txtUserName.SendKeys(userName);
-            //Console.WriteLine("User Name: " + txtUserName.GetAttribute("value"));
-            ////Fill password
-            //txtPassword.SendKeys(password);
-            //Console.WriteLine("Password: " + txtPassword.GetAttribute("value"));
-            ////Click Login
-            //btnLogin.Submit();
-            //// return the object of the page navigated to
-            //return new EAHomePOM();
+            
         }
     }
 }
