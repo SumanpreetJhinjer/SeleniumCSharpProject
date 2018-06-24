@@ -12,9 +12,9 @@ namespace SeleniumCSharpProject
 {
     class EAHomePOM
     {
-        public EAHomePOM()
+        public EAHomePOM(IWebDriver driver)
         {
-            PageFactory.InitElements(CommonUtility.driver, this);
+            PageFactory.InitElements(driver, this);
         }
 
         //use of FindsBy in POM

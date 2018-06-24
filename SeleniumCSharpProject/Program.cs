@@ -20,22 +20,24 @@ namespace SeleniumCSharpProject
         {
             
         }
-        [SetUp]
-        public void SetupForTest()
-        {
-            CommonUtility.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
+        //[SetUp]
+        //public void SetupForTest()
+        //{
+        //    driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
 
-            Console.WriteLine("opened url");
-        }
+        //    Console.WriteLine("opened url");
+        //}
         [Test]
         public void ExecuteTest()
         {
-            
+            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
+
+             Console.WriteLine("opened url");
             //ExcelDataLib.PopulateInCollection(@"C:\Users\m\Documents");
             //Intilizing the page object for EALoginPage
-            EALoginPOM eaLoginPage = new EALoginPOM();
+            EALoginPOM eaLoginPage = new EALoginPOM( driver);
             // Intilizing the object of another page from the POM of Login page and entering credentials
-            EAHomePOM homePage = eaLoginPage.Login("admin", "password");
+            EAHomePOM homePage = eaLoginPage.Login(driver,"admin", "password");
             Console.WriteLine("Logged in");
             //Filling the form on home Page
             homePage.FillUserForm("Mr.", "Sumanpreet", "Singh", "Jhinjer");
@@ -44,17 +46,16 @@ namespace SeleniumCSharpProject
             
         }
         [Test]
-        public void Test2()
+        public void GoogleTest()
         {
-            //Intilizing the page object for EALoginPage
-            EALoginPOM eaLoginPage = new EALoginPOM();
-            // Intilizing the object of another page from the POM of Login page and entering credentials
-            EAHomePOM homePage = eaLoginPage.Login("admin", "password");
-            Console.WriteLine("Logged in");
-            //Filling the form on home Page
-            homePage.FillUserForm("Mr.", "Sumanpreet", "Singh", "Jhinjer");
-            Console.WriteLine("Filled user form");
+            driver.Navigate().GoToUrl("http://www.google.com");
+            driver.FindElement(By.Name("q")).SendKeys("Selenium");
+            System.Threading.Thread.Sleep(5000);
+            driver.FindElement(By.Name("btnK")).Submit();
+            Assert.That( driver.PageSource.Contains("Selenium"), Is.EqualTo(true),
+                                            "The text selenium doest not exist");
+
         }
-      
+
     }
 }

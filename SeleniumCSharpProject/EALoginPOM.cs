@@ -10,9 +10,9 @@ namespace SeleniumCSharpProject
 {
     class EALoginPOM
     {
-        public EALoginPOM()
+        public EALoginPOM(IWebDriver driver)
         {
-            PageFactory.InitElements(CommonUtility.driver,this);
+            PageFactory.InitElements(driver,this);
         }
 
         //use of FindsBy in POM
@@ -25,7 +25,7 @@ namespace SeleniumCSharpProject
         [FindsBy(How = How.Name, Using = "Login")]
         public IWebElement btnLogin { get; set; }
 
-        public EAHomePOM Login(string userName,string password)
+        public EAHomePOM Login(IWebDriver driver,string userName,string password)
         {
             //Fill username
             txtUserName.EnterText(userName);
@@ -36,7 +36,7 @@ namespace SeleniumCSharpProject
             //Click Login
             btnLogin.Clicks();
             // return the object of the page navigated to
-            return new EAHomePOM();
+            return new EAHomePOM( driver);
             
         }
     }

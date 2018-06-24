@@ -10,10 +10,10 @@ namespace SeleniumCSharpProject
         CSSProperty,
         Xpath,
     }
-    class CommonUtility
+    public class CommonUtility
     {
         
         //Auto-implemented property
-        public static IWebDriver driver{ get; set; }
+        public IWebDriver driver{ get; set; }
     }
 }
