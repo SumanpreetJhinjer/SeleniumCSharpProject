@@ -33,13 +33,14 @@ namespace SeleniumCSharpProject
         [Test]
         public void ExecuteTest()
         {
+            ExcelDataLib.PopulateInCollection(@"G:\TestData\Data.xlsx");
             //Intilizing the page object for EALoginPage
             EALoginPOM eaLoginPage = new EALoginPOM();
             // Intilizing the object of another page from the POM of Login page and entering credentials
-            EAHomePOM homePage = eaLoginPage.Login("admin", "password");
+            EAHomePOM homePage = eaLoginPage.Login(ExcelDataLib.ReadData(2,"UserName"), ExcelDataLib.ReadData(2, "Password"));
             Console.WriteLine("Logged in");
             //Filling the form on home Page
-            homePage.FillUserForm("Mr.", "Sumanpreet", "Singh", "Jhinjer");
+            homePage.FillUserForm("Mr.", ExcelDataLib.ReadData(2, "Initial"), ExcelDataLib.ReadData(2, "FirstName"), ExcelDataLib.ReadData(2, "LastName"));
             Console.WriteLine("Filled user form");
 
             
