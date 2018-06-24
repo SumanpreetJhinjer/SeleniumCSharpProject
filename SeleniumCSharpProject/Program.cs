@@ -46,11 +46,15 @@ namespace SeleniumCSharpProject
             //btnLogin.Click();
 
 
-            //Use of custom methods
+            //Use of set custom methods
 
             CustomSetMethods.EnterText(driver, "UserName", "admin", "Name");
             CustomSetMethods.EnterText(driver, "Password", "admin", "Name");
-            CustomSetMethods.Click(driver, "Password", "Name");
+
+            //Get custom methods
+            Console.WriteLine("User Name: " + CustomGetMethods.GetText(driver, "UserName", "Name"));
+            Console.WriteLine("Password: " + CustomGetMethods.GetText(driver, "Password", "Name"));
+            CustomSetMethods.Click(driver, "Login", "Name");
             Console.WriteLine("entered value");
         }
         [TearDown]
