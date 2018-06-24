@@ -33,17 +33,16 @@ namespace SeleniumCSharpProject
         [Test]
         public void ExecuteTest()
         {
-          
-            //Use of set custom methods
+            //Intilizing the page object for EALoginPage
+            EALoginPOM eaLoginPage = new EALoginPOM();
+            // Intilizing the object of another page from the POM of Login page and entering credentials
+            EAHomePOM homePage = eaLoginPage.Login("admin", "password");
+            Console.WriteLine("Logged in");
+            //Filling the form on home Page
+            homePage.FillUserForm("Mr.", "Sumanpreet", "Singh", "Jhinjer");
+            Console.WriteLine("Filled user form");
 
-            CustomSetMethods.EnterText( "UserName", "admin", PropertyType.Name);
-            CustomSetMethods.EnterText( "Password", "admin", PropertyType.Name);
-
-            //Get custom methods
-            Console.WriteLine("User Name: " + CustomGetMethods.GetText( "UserName", PropertyType.Name));
-            Console.WriteLine("Password: " + CustomGetMethods.GetText( "Password", PropertyType.Name));
-            CustomSetMethods.Click( "Login", PropertyType.Name);
-            Console.WriteLine("entered value");
+            
         }
         [TearDown]
         public void TearDown()

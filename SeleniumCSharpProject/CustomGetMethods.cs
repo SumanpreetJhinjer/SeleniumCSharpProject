@@ -8,26 +8,28 @@ using System.Threading.Tasks;
 
 namespace SeleniumCSharpProject
 {
-    class CustomGetMethods
+    public static class CustomGetMethods
     {
         //get text from controls method
-        public static string GetText( string element, PropertyType elementType)
+        /// <summary>
+        /// extension of get attribute method
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static string GetText(this IWebElement element)
         {
-            if (elementType.Equals(PropertyType.Id))
-                return CommonUtility.driver.FindElement(By.Id(element)).GetAttribute("value");
-            if (elementType.Equals(PropertyType.Name))
-                return CommonUtility.driver.FindElement(By.Name(element)).GetAttribute("value");
-            else return String.Empty;
+            return element.GetAttribute("value");
         }
 
         //get text from controls like ddl method
-        public static string GetTextDDL( string element, PropertyType elementType)
+        /// <summary>
+        /// extension of get attribute from drop down method
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        public static string GetTextDDL(this IWebElement element)
         {
-            if (elementType.Equals(PropertyType.Id))
-                return new SelectElement(CommonUtility.driver.FindElement(By.Id(element))).SelectedOption.GetAttribute("value");
-            if (elementType.Equals(PropertyType.Name))
-                return new SelectElement(CommonUtility.driver.FindElement(By.Name(element))).SelectedOption.GetAttribute("value");
-            else return String.Empty;
+            return new SelectElement(element).SelectedOption.GetAttribute("value");
         }
 
 

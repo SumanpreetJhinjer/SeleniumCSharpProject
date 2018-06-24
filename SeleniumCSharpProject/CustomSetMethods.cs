@@ -8,32 +8,37 @@ using System.Threading.Tasks;
 
 namespace SeleniumCSharpProject
 {
-    class CustomSetMethods
+    public static class CustomSetMethods
     {
         //enter text method
-        public static void EnterText( string element, string elementValue, PropertyType elementType)
+        /// <summary>
+        /// Extension method for sending keys to the control
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="elementValue"></param>
+        public static void EnterText(this IWebElement element, string elementValue)
         {
-            if(elementType.Equals(PropertyType.Id))
-            CommonUtility.driver.FindElement(By.Id(element)).SendKeys(elementValue);
-            if (elementType.Equals(PropertyType.Name))
-                CommonUtility.driver.FindElement(By.Name(element)).SendKeys(elementValue);
+            element.SendKeys(elementValue);
         }
         //click on button, checkbox
-        public static void Click( string element, PropertyType elementType)
+        /// <summary>
+        /// extension method to click the element
+        /// </summary>
+        /// <param name="element"></param>
+        public static void Clicks(this IWebElement element)
         {
-            if (elementType.Equals(PropertyType.Id))
-                CommonUtility.driver.FindElement(By.Id(element)).Click();
-            if (elementType.Equals(PropertyType.Name))
-                CommonUtility.driver.FindElement(By.Name(element)).Click();
+            element.Submit();
         }
 
         //select dropdown
-        public static void selectDropDown( string element, string elementValue, PropertyType elementType)
+        /// <summary>
+        /// extension method to select from dropdown
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="elementValue"></param>
+        public static void selectDropDown(this IWebElement element, string elementValue)
         {
-            if (elementType.Equals(PropertyType.Id))
-                new SelectElement(CommonUtility.driver.FindElement(By.Id(element))).SelectByText(elementValue);
-            if (elementType.Equals(PropertyType.Name))
-                new SelectElement(CommonUtility.driver.FindElement(By.Name(element))).SelectByText(elementValue);
+            new SelectElement(element).SelectByText(elementValue);
         }
     }
 }
