@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
@@ -13,7 +14,7 @@ namespace SeleniumCSharpProject
 {
     class Program
     {
-        IWebDriver driver;
+        
         static void Main(string[] args)
         {
             
@@ -22,29 +23,33 @@ namespace SeleniumCSharpProject
         public void Setup()
         {
             //reference for webdriver
-            driver = new ChromeDriver();
+            CommonUtility.driver = new ChromeDriver();
 
 
             //Navigate to URL
-            driver.Navigate().GoToUrl("https://www.google.com");
+            CommonUtility.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
             Console.WriteLine("opened url");
         }
         [Test]
         public void ExecuteTest()
         {
+          
+            //Use of set custom methods
 
-            //enter text to some element
-            IWebElement element = driver.FindElement(By.Name("q"));
+            CustomSetMethods.EnterText( "UserName", "admin", PropertyType.Name);
+            CustomSetMethods.EnterText( "Password", "admin", PropertyType.Name);
 
-            //action
-            element.SendKeys("Sumanpreet Singh");
+            //Get custom methods
+            Console.WriteLine("User Name: " + CustomGetMethods.GetText( "UserName", PropertyType.Name));
+            Console.WriteLine("Password: " + CustomGetMethods.GetText( "Password", PropertyType.Name));
+            CustomSetMethods.Click( "Login", PropertyType.Name);
             Console.WriteLine("entered value");
         }
         [TearDown]
         public void TearDown()
         {
             //close browser
-            driver.Close();
+            CommonUtility.driver.Close();
             Console.WriteLine("closed browser");
         }
     }
