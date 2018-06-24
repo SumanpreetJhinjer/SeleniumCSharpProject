@@ -33,17 +33,26 @@ namespace SeleniumCSharpProject
         [Test]
         public void ExecuteTest()
         {
-          
-            //Use of set custom methods
+            //Intilizing the page object for EALoginPage
+            EALoginPOM eaLoginPage = new EALoginPOM();
 
-            CustomSetMethods.EnterText( "UserName", "admin", PropertyType.Name);
-            CustomSetMethods.EnterText( "Password", "admin", PropertyType.Name);
-
-            //Get custom methods
-            Console.WriteLine("User Name: " + CustomGetMethods.GetText( "UserName", PropertyType.Name));
-            Console.WriteLine("Password: " + CustomGetMethods.GetText( "Password", PropertyType.Name));
-            CustomSetMethods.Click( "Login", PropertyType.Name);
+            eaLoginPage.UserName.SendKeys("admin");
+            Console.WriteLine("User Name: " + eaLoginPage.UserName.GetAttribute("value"));
+            eaLoginPage.Password.SendKeys("admin");
+            Console.WriteLine("Password: " + eaLoginPage.Password.GetAttribute("value"));
+            eaLoginPage.Login.Click();
             Console.WriteLine("entered value");
+
+            ////Use of set custom methods
+
+            //CustomSetMethods.EnterText( "UserName", "admin", PropertyType.Name);
+            //CustomSetMethods.EnterText( "Password", "admin", PropertyType.Name);
+
+            ////Get custom methods
+            //Console.WriteLine("User Name: " + CustomGetMethods.GetText( "UserName", PropertyType.Name));
+            //Console.WriteLine("Password: " + CustomGetMethods.GetText( "Password", PropertyType.Name));
+            //CustomSetMethods.Click( "Login", PropertyType.Name);
+            //Console.WriteLine("entered value");
         }
         [TearDown]
         public void TearDown()
