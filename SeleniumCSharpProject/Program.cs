@@ -14,7 +14,7 @@ namespace SeleniumCSharpProject
 {
     class Program
     {
-        IWebDriver driver;
+        
         static void Main(string[] args)
         {
             
@@ -23,45 +23,33 @@ namespace SeleniumCSharpProject
         public void Setup()
         {
             //reference for webdriver
-            driver = new ChromeDriver();
+            CommonUtility.driver = new ChromeDriver();
 
 
             //Navigate to URL
-            driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
+            CommonUtility.driver.Navigate().GoToUrl("http://executeautomation.com/demosite/Login.html");
             Console.WriteLine("opened url");
         }
         [Test]
         public void ExecuteTest()
         {
-
-            //enter text to some element
-            //IWebElement userName = driver.FindElement(By.Name("UserName"));
-            //IWebElement password = driver.FindElement(By.Name("Password"));
-            //IWebElement btnLogin = driver.FindElement(By.Name("Login"));
-
-
-            //action
-            //userName.SendKeys("admin");
-            //password.SendKeys("admin");
-            //btnLogin.Click();
-
-
+          
             //Use of set custom methods
 
-            CustomSetMethods.EnterText(driver, "UserName", "admin", "Name");
-            CustomSetMethods.EnterText(driver, "Password", "admin", "Name");
+            CustomSetMethods.EnterText( "UserName", "admin", PropertyType.Name);
+            CustomSetMethods.EnterText( "Password", "admin", PropertyType.Name);
 
             //Get custom methods
-            Console.WriteLine("User Name: " + CustomGetMethods.GetText(driver, "UserName", "Name"));
-            Console.WriteLine("Password: " + CustomGetMethods.GetText(driver, "Password", "Name"));
-            CustomSetMethods.Click(driver, "Login", "Name");
+            Console.WriteLine("User Name: " + CustomGetMethods.GetText( "UserName", PropertyType.Name));
+            Console.WriteLine("Password: " + CustomGetMethods.GetText( "Password", PropertyType.Name));
+            CustomSetMethods.Click( "Login", PropertyType.Name);
             Console.WriteLine("entered value");
         }
         [TearDown]
         public void TearDown()
         {
             //close browser
-            driver.Close();
+            CommonUtility.driver.Close();
             Console.WriteLine("closed browser");
         }
     }
