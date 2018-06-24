@@ -58,6 +58,7 @@
     <Compile Include="CommonUtility.cs" />
     <Compile Include="CustomGetMethods.cs" />
     <Compile Include="CustomSetMethods.cs" />
+    <Compile Include="EAHomePOM.cs" />
     <Compile Include="EALoginPOM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -35,13 +35,12 @@ namespace SeleniumCSharpProject
         {
             //Intilizing the page object for EALoginPage
             EALoginPOM eaLoginPage = new EALoginPOM();
-
-            eaLoginPage.UserName.SendKeys("admin");
-            Console.WriteLine("User Name: " + eaLoginPage.UserName.GetAttribute("value"));
-            eaLoginPage.Password.SendKeys("admin");
-            Console.WriteLine("Password: " + eaLoginPage.Password.GetAttribute("value"));
-            eaLoginPage.Login.Click();
-            Console.WriteLine("entered value");
+            // Intilizing the object of another page from the POM of Login page and entering credentials
+            EAHomePOM homePage = eaLoginPage.Login("admin", "password");
+            Console.WriteLine("Logged in");
+            //Filling the form on home Page
+            homePage.FillUserForm("Mr.", "Sumanpreet", "Singh", "Jhinjer");
+            Console.WriteLine("Filled user form");
 
             ////Use of set custom methods
 

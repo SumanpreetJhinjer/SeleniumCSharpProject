@@ -17,12 +17,26 @@ namespace SeleniumCSharpProject
 
         //use of FindsBy in POM
         [FindsBy(How =How.Name,Using = "UserName")]
-        public IWebElement UserName { get; set; }
+        public IWebElement txtUserName { get; set; }
 
         [FindsBy(How = How.Name, Using = "Password")]
-        public IWebElement Password { get; set; }
+        public IWebElement txtPassword { get; set; }
 
         [FindsBy(How = How.Name, Using = "Login")]
-        public IWebElement Login { get; set; }
+        public IWebElement btnLogin { get; set; }
+
+        public EAHomePOM Login(string userName,string password)
+        {
+            //Fill username
+            txtUserName.SendKeys(userName);
+            Console.WriteLine("User Name: " + txtUserName.GetAttribute("value"));
+            //Fill password
+            txtPassword.SendKeys(password);
+            Console.WriteLine("Password: " + txtPassword.GetAttribute("value"));
+            //Click Login
+            btnLogin.Submit();
+            // return the object of the page navigated to
+            return new EAHomePOM();
+        }
     }
 }

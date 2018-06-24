@@ -1,9 +1,11 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SeleniumCSharpProject
@@ -17,30 +19,50 @@ namespace SeleniumCSharpProject
 
         //use of FindsBy in POM
         [FindsBy(How = How.Id, Using = "TitleId")]
-        public IWebElement TitleId { get; set; }
+        public IWebElement ddlTitleId { get; set; }
 
         [FindsBy(How = How.Name, Using = "Initial")]
-        public IWebElement Initial { get; set; }
+        public IWebElement txtInitial { get; set; }
 
         [FindsBy(How = How.Name, Using = "FirstName")]
-        public IWebElement FirstName { get; set; }
+        public IWebElement txtFirstName { get; set; }
 
         [FindsBy(How = How.Name, Using = "MiddleName")]
-        public IWebElement MiddleName { get; set; }
+        public IWebElement txtMiddleName { get; set; }
 
         [FindsBy(How = How.Name, Using = "Male")]
-        public IWebElement Male { get; set; }
+        public IWebElement rbMale { get; set; }
 
         [FindsBy(How = How.Name, Using = "Female")]
-        public IWebElement Female { get; set; }
+        public IWebElement rbFemale { get; set; }
 
         [FindsBy(How = How.Name, Using = "english")]
-        public IWebElement english { get; set; }
+        public IWebElement cbenglish { get; set; }
 
         [FindsBy(How = How.Name, Using = "Hindi")]
-        public IWebElement Hindi { get; set; }
+        public IWebElement cbHindi { get; set; }
 
         [FindsBy(How = How.Name, Using = "Save")]
-        public IWebElement Save { get; set; }
+        public IWebElement btnSave { get; set; }
+
+        //filling form on home page
+        public void FillUserForm(string title, string initial, string firstName, string middleName)
+        {
+            //select title from drop down
+            new SelectElement(ddlTitleId).SelectByText(title);
+            //fill user info
+            txtInitial.SendKeys(initial);
+            txtFirstName.SendKeys(firstName);
+            txtMiddleName.SendKeys(middleName);
+            //click gender radio button
+            rbMale.Click();
+            rbFemale.Click();
+            //click language checkbox
+            cbenglish.Click();
+            cbHindi.Click();
+            //click save
+            Thread.Sleep(2000);
+            btnSave.Click();
+        }
     }
 }
